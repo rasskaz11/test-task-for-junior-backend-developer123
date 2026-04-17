@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS task_recurrences (
+    id SERIAL PRIMARY KEY,
+    task_id INT NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
+    type VARCHAR(50) NOT NULL,
+    value TEXT,
+    interval INT DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
